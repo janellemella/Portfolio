@@ -1,0 +1,51 @@
+<head>
+  <link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<!----------------Navbar-------------------->
+<body>
+  <div class="navbar">    
+    <div class="nav-buttons">
+      <a href="aboutme.html" class="nav-item">About Me</a>
+      <a href="portfolio.html" class="nav-item">Portfolio</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+    </div>
+    
+    <div class="nav-item hamburger">☰</div>
+  </div>
+
+  <script>
+    document.querySelector('.hamburger').onclick = () => {
+      document.querySelector('.nav-buttons').classList.toggle('active');
+    };
+  </script>
+<!---------------------Main Content------------------------->
+<div class = 'aboutme-title'>
+  Janelle Mella 
+</div>
+
+<!--image-->
+<img src= "janelle.jpg" alt='Portrait of Janelle Mella, photo by Joe Timmerman' class = 'janelle'/> 
+
+<div class="aboutme-caption">
+  Janelle Mella |
+  <span class='credit'>
+    Credit:
+    <a href='https://wisconsinwatch.org/author/jtimmerman/'>
+      Joe Timmerman/Wisconsin Watch Photojournalist
+    </a>
+  </span>
+</div>
+
+<!--blurb-->
+<div class = 'aboutme-blurb'>
+  <i>
+    <p>Janelle Mella is a junior at Northwestern University majoring in Journalism with double minors in Film and Media Studies and Asian American Studies. At Northwestern, she has held several editing and reporting positions at The Daily Northwestern, covering student government and campus issues.</p>
+
+    <p>She has also reported professionally for Wisconsin Watch, where she covered statewide issues and explored solutions in rural communities, with a focus on housing affordability and homelessness. In the summer of 2026, she will serve as a metro reporting intern at The News & Observer.</p>
+
+    <p>Janelle is passionate about telling stories rooted in community voices and aspires a career covering local communities, grounded in investigative and solutions-oriented journalism.</p></i>
+</div>
+
+</body>
+</html>

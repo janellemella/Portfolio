@@ -1,0 +1,50 @@
+<head>
+  <link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<!---------------------Navbar-------------------------->
+<body>
+  <div class="navbar">    
+    <div class="nav-buttons">
+      <a href="aboutme.html" class="nav-item">About Me</a>
+      <a href="portfolio.html" class="nav-item">Portfolio</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+    </div>
+    
+    <div class="nav-item hamburger">☰</div>
+  </div>
+
+  <script>
+    document.querySelector('.hamburger').onclick = () => {
+      document.querySelector('.nav-buttons').classList.toggle('active');
+    };
+  </script>
+<!-----------------------Contact Info---------------------->
+
+<div class="contact-title">
+    Get In Touch
+  </div>
+  <div class="contact-links">
+    <a href="mailto:janellemella2027@u.northwestern.edu">Email</a> <!--mailto: pulls up the uers default email with a pre-drafted email to the receiver when clicked-->
+    | <a href="https://www.linkedin.com/in/janellemella">LinkedIn</a>
+  </div>
+
+<div class="contact-photos">
+  <img src= "contact1.PNG" alt='Janelle Mella at the Wisconsin State Capitol, Madison, photo by Joe Timmerman' class = 'contact-photos'/>
+  <img src= "contact2.PNG" alt='Janelle Mella at the Wisconsin State Capitol, Madison, photo by Joe Timmerman' class = 'contact-photos'/>
+</div>
+
+<div class="contact-caption">
+  <span class="caption-alignment">
+    Janelle Mella reporting from the Wisconsin State Capitol, Madison | Credit: 
+    <a href='https://wisconsinwatch.org/author/jtimmerman/'>Joe Timmerman/Wisconsin Watch Photojournalist</a>
+  </span>
+
+  <span class="caption-alignment">
+    Janelle Mella speaking on The Todd Allbaugh Show | Credit: 
+    <a href='https://toddallbaughshow.com/'>Todd Allbaugh/The Todd Allbaugh Show</a>
+  </span>
+</div>
+
+</body>
+</html>
