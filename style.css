@@ -1,0 +1,239 @@
+/*********************Styling for navbar********************/
+html {
+  scroll-behavior: smooth;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #856e58;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.nav-item {
+  padding: 0.5em 1em;
+  color: white;
+  text-decoration: none;
+  font-size:1.2em;
+  font-weight:bold;
+}
+
+.hamburger {
+  display: none;
+}
+
+.content {
+  width: 50%;
+  margin: auto;
+  font-size:1.4em;
+}
+
+img.fm{
+  width: 80%;
+  margin: auto;
+  display: block;
+}
+
+#hero { position: relative; }
+#hero h1 { 
+  position: absolute; 
+  top: 30%; left: 50%; 
+  transform: translate(-50%,-50%); 
+  font-family: 'Impact', Arial Black, sans-serif;
+  font-size: 5em;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 
+    0 0 10px #000, 
+    3px 3px 0 #000,
+    -3px -3px 0 #000,
+    3px 0 0 #000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.cutline {
+  text-align: center;
+}
+/*********************About Me Section******************/
+
+.aboutme-title {
+  color: rgb(41, 31, 7);
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 90px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.aboutme-blurb {
+  color: rgb(82, 61, 12);
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  width: 60%;        /* so lines don't go to the end of the page */
+  margin: 0 auto;    /* centers the blurb box */
+  margin-bottom: 20px;
+}
+
+/*image formatting */
+.janelle {
+  width: 30%;
+  height: auto;
+  display: block; /* makes sure the image doesn't function as text but as its own entity I believe */
+  margin: auto;
+}
+
+/*caption formatting */
+.aboutme-caption {
+  width: 30%;
+  font-size: 15px;
+  text-align: center;
+  margin: 0 auto;  /* centers the caption not just the text itself */
+  margin-top: 5px; 
+}
+
+/********************Portfolio section******************/
+
+/*clips formatting */
+.clip-section {
+  margin-bottom: 40px; /* margin-bottom and -top makes there be no gap between the headlines and text below and above it*/
+}
+
+.clip-links {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 25px;
+}
+
+.clip-links a {
+  font-style: italic;
+}
+
+.clip-titles {
+  margin-bottom: 10px;
+}
+
+.portfolio-title {
+  color: rgb(41, 31, 7);
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/******************Contact Section***********************/
+
+.contact-title {
+  color: rgb(41, 31, 7);
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.contact-links {
+  margin-top: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/*image formatting -- I used AI to help with logistics of positioning the images on the page because I was having trouble */
+.contact-photos{
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex; /*puts the images side by side */
+  gap: 10px; /*creates a little space between images */
+  text-align: center;
+}
+
+/*caption formatting */
+.contact-caption {
+  text-align: center;  
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+/* each caption side by side */
+.caption-alignment {
+  display: inline-block; /*makes sure the texts can be side by side */
+  width: 25%;            
+  text-align: center;    
+}
+
+/*********************************************************/
+
+/*General headline styling for each page*/
+
+h1 {
+  color: rgb(41, 31, 7);
+  font-family:'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 20px; 
+}
+
+h2 {
+  color: rgb(82, 61, 12);
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* Formatting for all hyperlinks */
+
+a {
+  color: rgb(82, 61, 12);
+  text-decoration: none; /*text-decoration takes away the line underneath that automatically shows up when hyperlinked*/
+}
+
+a:hover { /* a:hover just formats the link's hovering function and allows a user to hover */
+  color: #1113b4; /* Makes the words turn blue when users hover their cursor so they know the links are clickable */
+}
+
+/* Mobile for navbar/page overall*/
+
+@media (orientation: portrait) {
+
+  .nav-buttons {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-buttons.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #333;
+    padding: 1em;
+  }
+
+  .content {
+    width: 95%;
+  }
+
+  body {
+    width: 100%;
+    font-size: 2em;
+  }
+}
