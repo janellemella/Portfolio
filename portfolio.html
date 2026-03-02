@@ -1,0 +1,90 @@
+<html>
+<head>
+<!--------------------Navbar----------------------->
+<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="navbar">    
+    <div class="nav-buttons">
+      <a href="aboutme.html" class="nav-item">About Me</a>
+      <a href="portfolio.html" class="nav-item">Portfolio</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+    </div>
+    
+    <div class="nav-item hamburger">☰</div>
+  </div>
+
+  <script>
+    document.querySelector('.hamburger').onclick = () => {
+      document.querySelector('.nav-buttons').classList.toggle('active');
+    };
+  </script>
+
+<!------------------- Clips Section------------------>
+<div class="portfolio-title">
+Check out some of Janelle's work
+</div>
+
+<!-- Jour 320 -->
+<div class="clip-section">
+    <div class="clip-titles">
+        <h2>Jour 320</h2>
+    </div>
+
+    <div class="clip-links">
+        <p>
+            <a href="quiz.html">Find Your Spring Break Destination</a>
+        </p>
+    </div>
+</div>
+
+<!-- Wisconsin Watch -->
+<div class="clip-section">
+    <div class="clip-titles">
+        <h2>Wisconsin Watch</h2>
+    </div>
+
+    <div class="clip-links">
+        <p>
+            <a href="https://wisconsinwatch.org/2025/09/veterans-say-klein-hall-gave-them-a-new-life-now-its-set-to-close/">
+                Veterans' Home Closures
+            </a>
+        </p>
+
+        <p>
+            <a href="https://wisconsinwatch.org/2025/08/i-would-never-wish-it-on-anyone-measles-resurgence-spurs-memories-of-past-toll-in-wisconsin/">
+                Measles Outbreak
+            </a>
+        </p>
+
+        <p>
+            <a href="https://wisconsinwatch.org/2025/08/wisconsin-unemployment-insurance-workers-disability-ssdi-compensation/">
+                Wisconsin Ends Unemployment Aid Ban
+            </a>
+        </p>
+    </div>
+</div>
+
+<!-- The Daily Northwestern -->
+<div class="clip-section">
+    <div class="clip-titles">
+        <h2>The Daily Northwestern</h2>
+    </div>
+
+    <div class="clip-links">
+        <p>
+            <a href="https://dailynorthwestern.com/2025/04/17/campus/international-students-urge-university-support-amid-u-s-travel-uncertainty/">
+                International students urge University support
+            </a>
+        </p>
+
+        <p>
+            <a href="https://dailynorthwestern.com/2024/11/12/lateststories/mcsa-students-raise-concerns-over-halal-food-mislabeling-in-dining-halls-cross-contamination/">
+                Halal food mislabeling in dining hall
+            </a>
+        </p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<html>
+<head>
+  <title>Spring Break Quiz</title>
+  <style>
+/* **************************Quiz styling************************/
+    html, body { padding:20px; font-family:Arial; }
+
+  /* Button appearance */
+    button { 
+      width: 60%;          
+      max-width: 400px;    /* max-width prevents overly wide buttons on large screens */
+      display: block;
+      margin: 15px auto;
+      padding: 20px;
+      font-size: 20px;
+      border-radius: 20px;
+      border: none;
+      background: #D65A3F;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color:#FFFFFF;
+    }
+    
+    /* Doesn't show button on page */
+    .hidden { display:none; }
+
+    .item {
+      padding:15px;
+      margin:10px 0;
+      font-size:20px;
+      border-radius:20px;
+      text-align:center;
+    }
+
+    .item p { /* p just applies it to the text */
+      color: white;
+      font-size: 1.2em;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .item h2 { /*h2 makes the destination names white */
+      color: white;
+    }
+
+    /* Destination colors */
+    .hawaii { background:rgb(4, 92, 93); }
+    .miami { background:rgb(56, 85, 120); }
+    .colorado { background:rgb(0, 64, 224); }
+    .sedona { background:rgb(18, 87, 126); }
+    .losangeles { background:rgb(88, 64, 80); }
+    .neworleans { background:rgb(64, 40, 40); }
+    .floridakeys { background:rgb(0, 84, 143); }
+    .nashville { background:rgb(95, 81, 53); }
+  /* ******************************************************/
+
+/* Heading format */
+    h1 {
+      color:#E76F51;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align:center;
+      }
+
+    h2 {
+      color:#2A9D8F;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align:center;
+      }
+
+/*format for all of my main content */
+.main-content {
+  max-width: 1000px;   /* same as the slideshow-container */
+  width: 90%;           /* fit on smaller screens */
+  margin: 0 auto;       
+  text-align: center; 
+}
+
+/* Blurb before quiz format */
+.intro {
+  color:#B56576;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align:center;
+  width: 100%;  
+  font-size: 1.1em;
+  line-height: 1.5; 
+  margin-bottom: 20px;
+  }
+
+  /*destination caption & image styling */
+  .result-images{
+    max-width: 800px; /*makes sure the image stays consistent across different screen shrink sizes */
+    margin: 0 auto;
+  }
+
+  .result-images img{ /*img makes sure that this only applies to the images inside */
+    width: 100%;
+    max-width: 800px; 
+    border-radius: 15px; /*rounds corners of images */
+    display: block;
+  }
+
+  .result-captions{
+    font-size: .9em;
+    text-align: center;
+    margin-top: 8px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#FFFFFF;
+    max-width: 100%;    
+    word-wrap: break-word; /* breaks long text not awkwardly */
+    }
+
+  /******************presentation styling**************/
+  * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*hyperlink styling */
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:hover { /* a:hover just formats the link's hovering function and allows a user to hover */
+  color: #1113b4;
+}
+
+/* for phones */
+@media (orientation: portrait) {
+    body{
+        width: 100%;
+        font-size: 2em;
+    }
+}
+  </style>
+</head>
+
+
+<!--------------------------------------------------------Main Story------------------------------------------------------>
+<body>
+  
+<h1>Find Your Spring Break Destination (U.S)</h1>
+
+<!---------------------slideshow of images used in results---------------->
+<!-- Slideshow container -->
+<div id= 'slideshow' class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="hawaii.jpg" alt="A beach house in Hawaii" style="width:100%">
+    <div class="text">Credit: 
+      <a href="https://www.flickr.com/photos/imgdive/">Banzai Hiroaki</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="colorado.jpg"  alt="The mountainous landscape of Colorado Springs, CO" style="width:100%">
+    <div class="text">Credit: 
+      <a href="https://www.flickr.com/photos/cptspock/">Jasen Miller</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="nashville.jpg" alt="People and cars along the busy strees of downtown Nashville at night" style="width:100%">
+    <div class="text">Credit: 
+      <a href="https://www.flickr.com/photos/35106989@N08/">Robert Claypool</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div id = 'slideshow-dots' style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<!-----------------------------------Intro blurbs---------------------------------->
+<div class ='main-content'>
+<p class='intro'>
+February and March are the months when folks start scrambling to make last-minute decisions about where to go for spring break. For high school and college students, it's especially tricky, since many travel without parental guidance and often have limited budgets, so every choice matters. The most important factor that can make or break a trip? The location. There's a lot to consider: will the weather be sunny and warm enough for a tan, or will the week feel slow if there aren't beaches or hiking trails to explore? Some travelers chase nonstop partying at a luxurious resort, others prefer chill sunsets and relaxation and some want a mix of it all.
+</p>
+
+<p class='intro'>
+Picking the right spot can be difficult. According to the American Automobile Association, in 2025 about 60% of Americans traveled domestically for spring break, meaning many young travelers are likely to be staying in the U.S. this year as well. AAA also notes that spring break is often the “first big vacation of the year” for many, so it's a trip that can set the tone for the months ahead. 
+</p>
+
+<p class='intro'>
+Luckily, there's a solution. This Spring Break Quiz can help take away the uncertainty about where to go and what to do, pointing each traveler toward a destination that fits their vacation needs perfectly.
+</p>
+
+<!-----------------------------------------------Quiz----------------------------------------------->
+
+<!-- For this quiz, I initially tried using the filter buttons JavaScript you gave us in class to create the quiz, but I spent a lot of time trying to figure out how to save user answers and how to move to the next question. I used AI to help write those functions, but I tweaked all the code for my story's needs and entered all the data for each question and destination myself. I also took the time to understand what each function does. -->
+
+<!-- Q1 -->
+<div id="q1">
+  <h2><i>What is your ideal temperature?</i></h2>
+  <button onclick="saveAnswer('temperature','Tropical heat'); next('q1','q2')">Tropical heat</button>
+  <button onclick="saveAnswer('temperature','Warm'); next('q1','q2')">Warm</button>
+  <button onclick="saveAnswer('temperature','Cold'); next('q1','q2')">Cold</button>
+</div>
+
+<!-- Q2 -->
+<div id="q2" class="hidden">
+  <h2><i>What's your ideal setting?</i></h2>
+  <button onclick="saveAnswer('location','Beach'); next('q2','q3')">Beach</button>
+  <button onclick="saveAnswer('location','Mountains'); next('q2','q3')">Mountains</button>
+  <button onclick="saveAnswer('location','Natural Parks'); next('q2','q3')">Natural Parks</button>
+  <button onclick="saveAnswer('location','City'); next('q2','q3')">Bustling city</button>
+</div>
+
+<!-- Q3 -->
+<div id="q3" class="hidden">
+  <h2><i>What's the mood of this trip?</i></h2>
+  <button onclick="saveAnswer('mood','Party'); next('q3','q4')">Party</button>
+  <button onclick="saveAnswer('mood','Relaxed'); next('q3','q4')">Relaxed</button>
+  <button onclick="saveAnswer('mood','Adventure'); next('q3','q4')">Adventure</button>
+</div>
+
+<!-- Q4 -->
+<div id="q4" class="hidden">
+  <h2><i>Who are you traveling with?</i></h2>
+  <button onclick="saveAnswer('travel','Friends'); calculateResult()">Friends</button>
+  <button onclick="saveAnswer('travel','Partner'); calculateResult()">Partner</button>
+  <button onclick="saveAnswer('travel','Solo'); calculateResult()">Solo</button>
+  <button onclick="saveAnswer('travel','Family'); calculateResult()">Family</button>
+</div>
+
+<!----------------------------Possible destination results----------------------------->
+<!--Hawaii-->
+<div id="hawaii" class="item hawaii hidden">
+  <h2>You're going to Hawaii!</h2>
+  <div class = 'result-images'>
+    <img src="hawaii.jpg" alt="A beach house in Hawaii">
+    <div class="result-captions">
+      Hawaii Beach House | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/imgdive/">Banzai Hiroaki</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+
+  <p>Let this playlist guide your island adventures!</p>
+
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7IVcXzznEaDrIjoIwAJXNW?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!--Miami-->
+<div id="miami" class="item miami hidden">
+  <h2>You're going to Miami!</h2>
+  <div class = 'result-images'>
+    <img src="miami.jpg" alt="A sunrise in Miami">
+    <div class="result-captions">
+      Sunrise in Miami | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/alyssablack/">alyssa BLACK.</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+    </div>
+   </div>
+
+    <p>Let this playlist guide your fun adventures!</p>
+
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/28ZzZUhsK4bRMD9peSx2KL?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!--Colorado-->
+<div id="colorado" class="item colorado hidden">
+  <h2>You're going to Colorado!</h2>
+   <div class = 'result-images'>
+    <img src="colorado.jpg" alt="The mountainous landscape of Colorado Springs, CO">
+    <div class="result-captions">
+      Colorado Springs, CO | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/cptspock/">Jasen Miller</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+
+    <p>Let this playlist guide your chilling adventures!</p> 
+
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0U4cjs7kjtdXTJW1lxr7Wg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!--Sedona-->
+<div id="sedona" class="item sedona hidden">
+  <h2>You're going to Sedona!</h2>
+  <div class = 'result-images'>
+    <img src="sedona.jpg" alt="Red Rocks in Sedona">
+    <div class="result-captions">
+      Red Rocks of Sedona | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/volvob12b/">Bernard Spragg. NZ</a>; 
+      License: 
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=openverse">CC0 1.0</a>
+    </div>
+  </div>
+
+    <p>Let this playlist guide your rocking adventures!</p> 
+
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5PtL0cEAsfiUI2gPZGEB3V?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!--Los Angeles-->
+<div id="losangeles" class="item losangeles hidden">
+  <h2>You're going to Los Angeles!</h2>
+  <div class = 'result-images'>
+    <img src="losangeles.jpg" alt="A city skyline at Dodger Stadium in LA">
+    <div class="result-captions">
+     LA Skyline at Dodger Stadium | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/jondoeforty1/">jondoeforty1</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+    </div>
+  </div>
+
+    <p>Let this playlist guide your lively adventures!</p> 
+
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4midpAdvUGy0nbnCq3Oq0Z?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!--New Orleans-->
+<div id="neworleans" class="item neworleans hidden">
+ <h2>You're going to New Orleans!</h2>
+  <div class = 'result-images'>
+    <img src="neworleans.jpg" alt="People walking along Bourbon Street, New Orleans at night">
+    <div class="result-captions">
+     Bourbon Street, New Orleans | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/kenlund/">Ken Lund</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+    </div>
+  </div>
+
+    <p>Let this playlist guide your lively adventures!</p>
+
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/64K0hat6AdRxzfdOg90UFC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!-- Florida Keys -->
+<div id="floridakeys" class="item floridakeys hidden">
+  <h2>You're going to Florida Keys!</h2>
+  <div class='result-images'>
+    <img src="floridakeys.jpg" alt="Palm trees and a beach view in Florida Keys">
+    <div class="result-captions">
+      Beach in Florida Keys | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/sachinchitale/">SachinChitale</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+  
+  <p>Let this playlist guide your relaxing adventures!</p>
+
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3Zd1oeThlF4AW8rpqKJfVE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  
+</div>
+
+<!-- Nashville -->
+<div id="nashville" class="item nashville hidden">
+  <h2>You're going to Nashville!</h2>
+  <div class='result-images'>
+    <img src="nashville.jpg" alt="People and cars along the busy strees of downtown Nashville at night">
+    <div class="result-captions">
+      Downtown Nashville | 
+      Credit: 
+      <a href="https://www.flickr.com/photos/35106989@N08/">Robert Claypool</a>; 
+      License: 
+      <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+    </div>
+  </div>
+
+  <p>Let this playlist guide your musical adventures!</p>
+
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Asm96WFMVnsGaCBn9koeN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<!--------------------------- JS for actually taking the quiz ------------------>
+<script>
+let answers = {
+  temperature: "",
+  location: "",
+  mood: "",
+  travel: ""
+};
+
+function saveAnswer(question, value) {
+  answers[question] = value;
+}
+
+function next(current, nextQuestion) {
+  document.getElementById(current).classList.add("hidden");
+  document.getElementById(nextQuestion).classList.remove("hidden");
+}
+
+function calculateResult() {
+  /*hides the last question */
+  document.getElementById("q4").classList.add("hidden");
+
+  /*hides all intro text */
+  document.querySelectorAll(".intro").forEach(el => el.classList.add("hidden"));
+
+  /*hides slideshow */
+  document.getElementById("slideshow").style.display = "none";
+
+  /*hides slideshow dots */
+  document.getElementById("slideshow-dots").style.display = "none";
+
+  let result = "";
+
+  /*calculations based on a possible set of combinations for each location (did not take every one into account since there are hundreds)*/
+  
+   if (answers.temperature === "Tropical heat") {
+    if (answers.location === "Beach") {
+      if (answers.mood === "Party") {
+        if (answers.travel === "Friends") result = "miami";
+        else result = "hawaii"; /*Partner, Family, Solo*/
+      } else { /*Relaxed or Adventure*/
+        if (answers.travel === "Partner") result = "hawaii";
+        else if (answers.travel === "Family") result = "hawaii";
+        else result = "floridakeys"; /*Solo or other*/
+      }
+    } else { /* Not beach */
+      result = "hawaii";
+    }
+  } 
+  else if (answers.temperature === "Cold") {
+    if (answers.location === "Mountains" || answers.location === "Natural Parks") {
+      result = "colorado";
+    } else {
+      result = "colorado"; /*fallback*/
+    }
+  } 
+  else if (answers.temperature === "Warm") {
+    if (answers.location === "Natural Parks") {
+      result = "sedona";
+    } 
+    else if (answers.location === "City") {
+      if (answers.mood === "Party") {
+        if (answers.travel === "Friends") result = "neworleans";
+        else if (answers.travel === "Solo") result = "nashville";
+        else result = "losangeles"; /* Partner, Family */
+      } 
+      else if (answers.mood === "Relaxed") {
+        if (answers.travel === "Partner") result = "losangeles";
+        else if (answers.travel === "Solo") result = "nashville";
+        else result = "losangeles"; /* Friends, Family */
+      } 
+      else { /*Adventure */
+        result = "nashville";
+      }
+    } 
+    else if (answers.location === "Beach") {
+      if (answers.mood === "Relaxed") result = "floridakeys";
+      else result = "miami";
+    } 
+    else { /* fallback */
+      result = "sedona";
+    }
+  } 
+  else {
+    result = "hawaii"; /* fallback for missing answers */
+  }
+
+  document.getElementById(result).classList.remove("hidden");
+}
+
+/************************JS for slideshow************************/
+let slideIndex = 1;
+showSlides(slideIndex);
+
+/* Next/previous controls */
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+/* Thumbnail image controls */
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+</body>
+</html>
